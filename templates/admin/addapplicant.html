@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Add Applicant</title>
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/css/addapplicant.css">
+</head>
+<body>
+
+	<div class="grid-container">
+
+	  <!-- HEADER -->
+	  <div class="header">
+	  	<div class="header-container">
+	  		<div id="app-title">R2 Engine</div>
+		  	<div id="user-container">
+				<div id="admin-container">
+					<div class="image-container">
+						<img src="/img/Profile-Icon.png" alt="profile">
+					</div>
+					<div id="admin-name">Michael Flores <i class="fas fa-chevron-down"></i></div>
+				</div>
+				<div class="dropdown-content">
+					<a href="/"><button id="logout-btn">Log Out</button></a>
+				</div>
+			</div>
+	  	</div>
+	  </div>
+
+		<!-- NAVIGATION -->
+		<div class="nav">
+			<nav>
+				<ul class="navigation-list">
+					<li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
+					<li><a href="/job-postings"><i class="fas fa-briefcase"></i> Job Postings</a></li>
+					<li class="active"><a href="/applicants"><i class="fas fa-user-friends"></i> Applicants</a></li>
+					<li><a href="#"><i class="fas fa-poll"></i> Results</a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+      <!-- MAIN -->
+	  <div class="main">
+	  	<div class="sub-nav">
+			<h2>Add Applicant</h2>
+		</div>
+
+		<div class="container">
+			<div class="upload-container">
+				<div id="parse-text">Fill in Fields or Parse Resume</div>
+				<div class="line"></div>
+				<form>
+					<label for="name">Name</label>
+					<input type="text" id="name" name="name"/>
+
+					<label for="job-title">Job Title</label>
+					<input type="text" id="job-title" name="jobTitle"/>
+
+					<label for="mobile">Mobile</label>
+					<input type="tel" id="mobile" name="mobileNumber"/>
+
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email"/>
+
+					<label for="location">Location</label>
+					<input type="text" id="location" name="location"/>
+
+					<label for="reliability">Reliability</label>
+					<input type="text" id="reliability" name="reliability"/>
+
+					<label for="pipeline">Pipeline</label>
+					<input type="text" id="pipeline" name="pipeline"/>
+
+					<button type="submit">Submit</button>
+				</form>
+				<div class="line"></div>
+
+					<form action="/upload-resume" method="POST" enctype="multipart/form-data">
+						<div id="drop-area">
+							<i class="fas fa-cloud-upload-alt"></i><span>Drag and Drop <br> or</span><br>
+							<input oninput="handleFile(this.files[0])" type="file" name="fileInput" id="fileInput" accept=".doc,.docx,application/msword,.pdf,.txt">
+							<label for="fileInput" id="select">Select Files</label><br>
+						</div>
+						<div id="fileName"></div>
+					    <button type="submit" name="upload" id="upload">Upload Resume</button>
+				    </form>
+
+					<canvas></canvas>
+			</div>		
+
+		</div>
+	  </div>  
+
+	  <!-- FOOTER -->
+	  <div class="footer">
+	  	&copy; R2 Engine 2020 All Rights Reserved.
+	  </div>
+
+	</div>
+
+	<script src="https://kit.fontawesome.com/310eee1f21.js" crossorigin="anonymous"></script>
+	<script src="/js/main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/1.8.349/pdf.min.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.489/build/pdf.min.js"></script> -->
+	<script src="/js/addapplicant.js"></script>
+</body>
+</html>

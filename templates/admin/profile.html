@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Profile</title>
+	<link rel="stylesheet" type="text/css" href="../../public/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../../public/css/profile.css">
+</head>
+<body>
+
+	<div class="grid-container">
+
+	  <!-- HEADER -->
+	  <div class="header">
+	  	<div class="header-container">
+	  		<div id="app-title">R2 Engine</div>
+		  	<div id="user-container">
+				<div id="admin-container">
+					<div class="image-container">
+						<img src="../../public/img/Profile-Icon.png" alt="profile">
+					</div>
+					<div id="admin-name">Michael Flores <i class="fas fa-chevron-down"></i></div>
+				</div>
+				<div class="dropdown-content">
+					<button id="logout-btn">Log Out</button>
+				</div>
+			</div>
+	  	</div>
+	  </div>
+
+		<!-- NAVIGATION -->
+		<div class="nav">
+			<nav>
+				<ul class="navigation-list">
+					<li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
+					<li><a href="/job-postings"><i class="fas fa-briefcase"></i> Job Postings</a></li>
+					<li class="active"><a href="/applicants"><i class="fas fa-user-friends"></i> Applicants</a></li>
+					<li><a href="#"><i class="fas fa-poll"></i> Results</a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+      <!-- MAIN -->
+	  <div class="main">
+	  	<div class="profile-container">
+
+			<div class="top-section">
+				<div class="main-credentials">
+					<div class="name-title">
+						<img src="../../public/img/User.png" alt="Profile Icon" class="profileImg">
+						<div class="name-title-inner">
+							<h2>76009 - John Doe</h2>
+							<p>Recent Title: Software Engineer</p>
+						</div>
+					</div>
+
+					<div>
+						<p>Reliability:</p>
+						<div>100%</div>
+					</div>
+				</div>
+
+				<div class="additional-credentials">
+					<div class="credentials">
+						<p><i class="fas fa-mobile-alt"></i> 908-345-0987</p>
+						<p><i class="fas fa-map-marker-alt"></i> New York City, New York</p>
+					</div>
+					<div class="credentials">
+						<p><i class="fas fa-envelope"></i> john.doe@gmail.com</p>
+						<p>Additional Links: http://github.com/johndoe</p>
+					</div>
+				</div>
+
+					<a href="profile-edit.html">Edit Applicant</a>
+					<a href="#" id="view-resume">View Resume</a>
+			</div>
+
+			<div class="line"></div>
+			
+			<div class="middle-section">
+				<h3>Experience</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Position Title</th>
+							<th>Employer</th>
+							<th>Period</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Software Engineer</td>
+					    	<td>Google</td>
+							<td>2017 - Present</td>
+						</tr>
+					</tbody>
+			   </table>
+				<h3>Education</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Institution</th>
+							<th>Degree</th>
+							<th>Year Completed</th>
+							<th>Location</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Princeton University</td>
+							<td>Computer Science</td>
+							<td>2016</td>
+							<td>Princeton, NJ</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="line"></div>
+
+			<div class="bottom-section">
+				<div>
+					<h3>Skills</h3>
+				    <p>
+				    Amazon Web Services, NGINX, Amazon S3, Java, MongoDB, Android Studio, JavaFx, Git, GitHub 
+				    </p>
+				</div>
+				<div>
+					<h3>Additional Notes</h3>
+					<p>None.</p>
+				</div>
+			</div>	
+
+			<div class="overlay">
+				<div class="resume">
+				    <p>76009 - John_Doe_Resume.pdf</p><p id="close">X</p>
+				</div>
+		    </div>
+		</div>
+
+	  </div>  
+
+	  <!-- FOOTER -->
+	  <div class="footer">
+	  	&copy; R2 Engine 2020 All Rights Reserved.
+	  </div>
+
+	</div>
+
+	<script src="https://kit.fontawesome.com/310eee1f21.js" crossorigin="anonymous"></script>
+	<script src="../../public/js/main.js"></script>
+	<script src="../../public/js/profile.js"></script>
+</body>
+</html>

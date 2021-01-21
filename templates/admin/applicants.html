@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Applicants</title>
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/css/applicants.css">
+</head>
+<body>
+
+	<div class="grid-container">
+
+	  <!-- HEADER -->
+	  <div class="header">
+	  	<div class="header-container">
+	  		<div id="app-title">R2 Engine</div>
+		  	<div id="user-container">
+				<div id="admin-container">
+					<div class="image-container">
+						<img src="/img/Profile-Icon.png" alt="profile">
+					</div>
+					<div id="admin-name">Michael Flores <i class="fas fa-chevron-down"></i></div>
+				</div>
+				<div class="dropdown-content">
+					<button id="logout-btn">Log Out</button>
+				</div>
+			</div>
+	  	</div>
+	  </div>
+
+		<!-- NAVIGATION -->
+		<div class="nav">
+			<nav>
+				<ul class="navigation-list">
+					<li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
+					<li><a href="/job-postings"><i class="fas fa-briefcase"></i> Job Postings</a></li>
+					<li class="active"><a href="/applicants"><i class="fas fa-user-friends"></i> Applicants</a></li>
+					<li><a href="#"><i class="fas fa-poll"></i> Results</a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+      <!-- MAIN -->
+	  <div class="main">
+	  	<div class="sub-nav">
+				<div class="labels-container">
+					<h2>All Applicants</h2>
+				    <div class="code-container">
+				    	<div class="square"></div>
+				    	<span>Submissions</span>
+				    	<div class="square"></div>
+				    	<span>Pipeline</span>
+				    </div>
+				</div>
+			
+				<div class="search-add-container">
+					<div>
+						<a href="/applicants/add">
+						<button id="add-new"><i class="fas fa-user-plus"></i> Add New Applicant</button>
+						</a>
+					</div>
+
+					<div>
+						<input type="text" id="search-input" name="search-input" placeholder="Search">
+					</div>
+
+					<!-- Custom Select Menu -->
+					<div class="search-dropdown">
+
+						<div class="default-select">
+							<div class="default-select-trigger">
+								<span>Name</span><i class="fas fa-caret-down"></i>
+							</div>
+
+							<div id="search-options" class="dn">
+								<ul>
+									<li><span class="custom-option">ID</span></li>
+									<li><span class="custom-option selected">Name</span></li>
+									<li><span class="custom-option">Job Title</span></li>
+									<li><span class="custom-option">Mobile</span></li>
+									<li><span class="custom-option">Email</span></li>
+									<li><span class="custom-option">Location</span></li>
+									<li><span class="custom-option">Reliability</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div>
+						<button type="button" id="advanced-search" name="advanced-search" title="Advanced Search">Search</button>
+					</div>
+				</div>
+
+		    </div>
+
+			<div class="container">
+				<div class="table-container">
+					<table>
+						<thead>
+							<tr>
+								<th>
+									<input type="Checkbox" name="select-all">
+								</th>
+								<th>&nbsp;</th>
+								<th data-column="id" data-order="desc">ID <i class="fas fa-sort-down"></i></th>
+								<th data-column="name" data-order="desc">Name <i class="fas fa-sort-down"></i></th>
+								<th data-column="jobTitle" data-order="desc">Job Title <i class="fas fa-sort-down"></i></th>
+								<th data-column="mobileNumber" data-order="desc">Mobile Number <i class="fas fa-sort-down"></i></th>
+								<th data-column="email" data-order="desc">Email <i class="fas fa-sort-down"></i></th>
+								<th data-column="location" data-order="desc">Location <i class="fas fa-sort-down"></i></th>
+								<th data-column="reliability" data-order="desc">Reliability <i class="fas fa-sort-down"></i></th>
+							</tr>
+						</thead>
+						<tbody id="tableData">
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+	  </div>  
+
+	  <!-- FOOTER -->
+	  <div class="footer">
+	  	&copy; R2 Engine 2020 All Rights Reserved.
+	  </div>
+
+	</div>
+
+	<script src="https://kit.fontawesome.com/310eee1f21.js" crossorigin="anonymous"></script>
+	<script src="/js/main.js"></script>
+	<script src="/js/applicants.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+/* Add Applicant */
+#drop-area {
+  font-family: sans-serif;
+  border: 2px dashed #CCCCCC;
+  border-radius: 20px;
+  width: 50%;
+  padding: 20px;
+  margin: auto;
+}
+#drop-area.highlight {
+  border-color: #00CC99;
+}
+
+.upload-container {
+	background-color: #FFF;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 2%;
+}
+#parse-text {
+	font-family: sans-serif;
+	font-weight: 600;
+	padding: 1rem 0;
+}
+#select {
+	font-family: sans-serif;
+	font-size: 20px;
+	display: inline-block;
+	background-color: #CCCCCC;
+	border-radius: 5px;
+	border: 1px solid #CCCCCC;
+	padding: 10px;
+}
+#select:hover {
+	background-color: #DDDDDD;
+	cursor: pointer;
+}
+#fileInput {
+	display: none;
+}
+
+.line {
+	border: 1px solid #000;
+}
+
+form {
+	margin: 2rem 0;
+}
+
+form * {
+	margin: 10px;
+}
+
+form button[id="upload"] {
+	display: none;
+	color: #FFFFFF;
+	padding: 10px 15px;
+	background-color: #0000FF;
+	border-radius: 5px;
+	border: none;
+}
+
+form button[id="upload"]:hover {
+	cursor: pointer;
+}

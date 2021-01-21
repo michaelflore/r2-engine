@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Job Postings</title>
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/css/job-postings.css">
+</head>
+<body>
+
+	<div class="grid-container">
+
+	  <!-- HEADER -->
+	  <div class="header">
+	  	<div class="header-container">
+	  		<div id="app-title">R2 Engine</div>
+		  	<div id="user-container">
+				<div id="admin-container">
+					<div class="image-container">
+						<img src="/img/Profile-Icon.png" alt="profile">
+					</div>
+					<div id="admin-name">Michael Flores <i class="fas fa-chevron-down"></i></div>
+				</div>
+				<div class="dropdown-content">
+					<button id="logout-btn">Log Out</button>
+				</div>
+			</div>
+	  	</div>
+	  </div>
+
+		<!-- NAVIGATION -->
+		<div class="nav">
+			<nav>
+				<ul class="navigation-list">
+					<li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
+					<li class="active"><a href="/job-postings"><i class="fas fa-briefcase"></i> Job Postings</a></li>
+					<li><a href="/applicants"><i class="fas fa-user-friends"></i> Applicants</a></li>
+					<li><a href="#"><i class="fas fa-poll"></i> Results</a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+      <!-- MAIN -->
+	  <div class="main">
+	  	<div class="sub-nav">
+				<div class="labels-container">
+					<h2>All Jobs</h2>
+				    <div class="code-container">
+				    	<div class="square"></div>
+				    	<span>Submissions</span>
+				    	<div class="square"></div>
+				    	<span>Pipeline</span>
+				    </div>
+				</div>
+			
+				<div class="search-add-container">
+					<div>
+						<a href="#">
+						<button id="add-new"><i class="fas fa-star"></i> New Job Posting</button>
+						</a>
+					</div>
+
+					<div class="search-dropdown">
+						<input type="text" id="search-input" name="search-input" placeholder="Search">
+						<div class="default-select">
+							<span>All </span><i class="fas fa-caret-down"></i>
+						</div>			
+						<div id="search-options" style="display: none;">
+							<ul>
+								<li><a href="#" class="custom-option selected">All </a></li>
+								<li><a href="#" class="custom-option">Job Code </a></li>
+								<li><a href="#" class="custom-option">Job Title </a></li>
+								<li><a href="#" class="custom-option">City </a></li>
+								<li><a href="#" class="custom-option">State </a></li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<button type="button" id="advanced-search" name="advanced-search" title="Advanced Search">Search</button>
+					</div>
+				</div>
+
+		    </div>
+
+			<div class="container">
+				<div class="table-container">
+					<table>
+						<thead>
+							<tr>
+								<th>
+									<input type="Checkbox" name="select-all">
+								</th>
+								<th>&nbsp;</th>
+								<th data-column="code" data-order="desc">Job Code <i class="fas fa-sort-down"></i></th>
+								<th data-column="title" data-order="desc">Job Title <i class="fas fa-sort-down"></i></th>
+								<th data-column="city" data-order="desc">City <i class="fas fa-sort-down"></i></th>
+								<th data-column="state" data-order="desc">State <i class="fas fa-sort-down"></i></th>
+								<th data-column="by" data-order="desc">Created By <i class="fas fa-sort-down"></i></th>
+								<th data-column="on" data-order="desc">Created On <i class="fas fa-sort-down"></i></th>
+							</tr>
+						</thead>
+						<tbody id="tableData">
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+	  </div>  
+
+	  <!-- FOOTER -->
+	  <div class="footer">
+	  	&copy; R2 Engine 2020 All Rights Reserved.
+	  </div>
+
+	</div>
+
+	<script src="https://kit.fontawesome.com/310eee1f21.js" crossorigin="anonymous"></script>
+	<script src="/js/main.js"></script>
+	<script src="/js/job-postings.js"></script>
+</body>
+</html>

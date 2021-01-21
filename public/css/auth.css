@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+/* General Styles */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+p {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+a {
+	text-decoration: none;
+}
+#grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  width: 100vw;
+  height: 100vh;
+}
+#grid-container .grid-item:nth-child(1) {
+    height: 100vh;
+}
+#grid-container .grid-item:nth-child(2) {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#wrapper {
+  background-color: #F2F2F2;
+  padding: 1rem 3rem;
+}
+
+#signin-text, #signup-text {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.login-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Form elements */
+form#signin-form, form#signup-form {
+  padding: 1rem;
+}
+
+label[for="username"], label[for="password"], label[for="checkbox"] {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Register.html */
+label[for="fullname"], label[for="email"], label[for="confirm-password"] {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+	background-color: white;
+	border: 1px solid #D4D4D4;
+    border-radius: 5px;
+}
+
+/*.fas.fa-user, .fas.fa-lock, .fas.fa-envelope {
+	width: 9.99%;
+	padding: 10px 15px;
+} */
+
+form input[id="username"], form input[id="fullname"] {
+    background-image: url('../img/user-solid.svg');
+    background-position: 10px;
+    background-size: 15px;
+    background-repeat: no-repeat;
+}
+
+form input[id="password"], form input[id="confirm-password"] {
+    background-image: url('../img/lock-solid.svg');
+    background-position: 10px;
+    background-size: 15px;
+    background-repeat: no-repeat;
+}
+
+form input[id="email"] {
+    background-image: url('../img/envelope-solid.svg');
+    background-position: 10px;
+    background-size: 15px;
+    background-repeat: no-repeat;
+}
+
+
+form input[id="username"], form input[id="password"], form input[id="fullname"],
+form input[id="email"],form input[id="confirm-password"] {
+    padding: 12px 20px 12px 40px;
+    width: 100%;
+    margin: 10px 0;
+    border: none;
+}
+
+form input[id="username"]:focus, form input[id="password"]:focus,
+form input[id="fullname"]:focus, form input[id="email"]:focus, form input[id="confirm-password"]:focus {
+    outline: none !important;
+    border-bottom: 2px solid #009ACB;
+}
+
+form input[type="submit"] {
+    background-color: #58D7FF;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    padding: 16px 32px;
+    margin: 1.5rem 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+form input[value="Register"] {
+    background-color: rgb(8, 219, 18);
+}
+
+a#forgot-password {
+	font-family: 'Roboto', sans-serif;
+	float: right;
+}
+
+.or-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+#ortext {
+	font-family: 'Roboto', sans-serif;
+}
+
+.line {
+	width: 40%;
+    height: 0;
+	border: 1px solid #000000;
+}
+
+.linereg {
+    border: 1px solid #000000;
+    margin: 10px 0;
+}
+
+p a#signup-text {
+    color: #000000;
+}
+
+.links {
+    color: #009ACB;
+}
+
+@media only screen and (max-width: 1200px) {
+  #grid-container { 
+    grid-template-columns: repeat(2, 50%); 
+  }
+  #wrapper {
+    margin: 30px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  #wrapper {
+    margin: 20px;
+  }
+  #ortext {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #grid-container { 
+    grid-template-columns: repeat(1, 100%); 
+  }
+  #wrapper {
+    margin: 50px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #grid-container { 
+    grid-template-columns: repeat(1, 100%); 
+  }
+  #wrapper {
+    margin: 30px;
+    padding: 20px 20px;
+  }
+  #ortext {
+    margin: 0;
+  }
+}
