@@ -42,6 +42,7 @@ body {
 	animation: fadeIn ease 2s;
 	background-color: #F3F1F1;
 	padding: 1rem 2rem;
+	overflow-y: auto;
 }
 .footer {
 	grid-area: footer;
@@ -66,17 +67,19 @@ body {
 #admin-container {
 	display: flex;
 	align-items: center;
+	padding: 0.5rem 1rem;
 }
 #admin-name {
 	padding: 10px 5px;
 }
 .image-container {
 	margin: 0 6px;
+	width: 3rem;
+	height: 3rem;
 }
 img[alt=profile] {
 	width: 100%;
-	max-width: 50px;
-	max-height: 50px;
+	height: 100%;
 }
 #admin-name:hover, #logout-btn {
 	cursor: pointer;
@@ -84,14 +87,14 @@ img[alt=profile] {
 .dropdown-content {
 	display: none;
 	position: absolute;
-    top: 40px;
+    top: 100%;
     text-align: center;
     padding: 15px 10px;
     background-color: #f6f6f6;
     min-width: 100%;
     border-radius: 5px;
     z-index: 1;
-    box-shadow: 0 6px 8px rgba(0,0,0,.5)
+    box-shadow: 0 4px 6px rgba(0,0,0,.5)
 }
 #logout-btn {
 	border: none;

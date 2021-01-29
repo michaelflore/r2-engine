@@ -17,9 +17,8 @@ form.addEventListener("submit", function(event) {
 
 	let personObject = {};
 	//Generate random id
-	let randomID = Math.floor(Math.random() * 100000) + 1;
-
-	personObject["id"] = randomID;
+	// let randomID = Math.floor(Math.random() * 100000) + 1;
+	// personObject["id"] = randomID;
 
 	formData.forEach((value, key) => personObject[key] = value);
 

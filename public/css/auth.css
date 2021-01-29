@@ -99,12 +99,13 @@ form input[id="email"],form input[id="confirm-password"] {
     width: 100%;
     margin: 10px 0;
     border: none;
+    border-bottom: 1px solid transparent;
 }
 
 form input[id="username"]:focus, form input[id="password"]:focus,
 form input[id="fullname"]:focus, form input[id="email"]:focus, form input[id="confirm-password"]:focus {
     outline: none !important;
-    border-bottom: 2px solid #009ACB;
+    border-bottom: 1px solid #009ACB;
 }
 
 form input[type="submit"] {

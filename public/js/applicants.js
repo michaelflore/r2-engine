@@ -1,8 +1,23 @@
 let defaultSelect = document.getElementsByClassName("default-select")[0];
 let searchOptions = document.getElementById("search-options");
 
-let tableHeaders = document.querySelectorAll("th");
+let tableHeaders = document.querySelectorAll("th[data-column]");
 let searchInput = document.getElementById("search-input");
+
+const selectAll = document.getElementById("select-all");
+//Checkboxes
+selectAll.addEventListener("click", function () {
+	let checkboxes = document.getElementsByName("select-row");
+	if(this.checked) {
+		for(let checkbox of checkboxes) {
+			checkbox.checked = true;
+		}
+	} else {
+		for(let checkbox of checkboxes) {
+			checkbox.checked = false;
+		}
+	}
+});
 
 //Search Dropdown
 defaultSelect.addEventListener("click", function() {
@@ -43,7 +58,7 @@ function loadTableData(personData) {
 	for(let person of personData) {
 		output += `<tr>
 						<td>
-							<input type="Checkbox" name="select-row">
+							<input type="checkbox" name="select-row">
 						</td>
 						<td>
 							<div class="details-container">
@@ -52,8 +67,8 @@ function loadTableData(personData) {
 								<div class="block">${person.pipeline}</div>
 							</div>
 						</td>
-						<td>${person.id}</td>
-						<td><a href="profile.html" style="text-decoration: none; color: #0000ff;">${person.name}</a></td>
+						<td>${person._id.substring(0, 7)}</td>
+						<td><a href="#" style="text-decoration: none; color: #0000ff;">${person.name}</a></td>
 						<td>${person.jobTitle}</td>
 						<td>${person.mobileNumber}</td>
 						<td>${person.email}</td>
