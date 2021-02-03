@@ -20,13 +20,18 @@
 
 			<form name="signin-form" id="signin-form">
 				<div>
-					<label for="username">Username or Email</label>
-					<input type="text" id="username">
+					<label for="username">Username</label>
+					<input type="text" id="username" name="username">
+				</div>
+
+				<div>
+					<label for="email">Email</label>
+					<input type="text" id="email" name="email">
 				</div>
 
 			    <div>
 					<label for="password">Password</label>
-					<input type="password" id="password">
+					<input type="password" id="password" name="password">
 				</div>
 
 			    <input type="checkbox" id="checkbox"> <label for="checkbox">Remember Me</label>
@@ -46,5 +51,6 @@
 </div>
 
 <script src="https://kit.fontawesome.com/310eee1f21.js" crossorigin="anonymous"></script>
+<script src="/js/login.js"></script>
 </body>
 </html>

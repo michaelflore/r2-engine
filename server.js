@@ -3,20 +3,62 @@ const app = express();
 const router = express.Router();
 const path = require('path');
 const bodyParser = require('body-parser');
-const Applicant = require("./models/Applicant");
+const cors = require("cors");
+const models = require("./models");
+const db = require("./config/db.config");
+
+const Applicant = models.applicant;
+const Role = models.role;
+
+let corsOptions = {
+    origin: "http://localhost:3001"
+}
+
+app.use(cors(corsOptions));
+
+//Content type application/json
+app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.json());
+
 //Mongoose
-const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/r2engine", {
+models.mongoose.connect(`mongodb://localhost:27017/${db.DB}`, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true
+}).then(() => {
+    console.log("Successfully connect to MongoDB.");
+    initial();
 });
-mongoose.connection.once("open", () => {
+models.mongoose.connection.once("open", () => {
     console.log("MongoDB Connection established successfully");
 });
+
+function initial() {
+    Role.estimatedDocumentCount((err, count) => {
+        if (!err && count === 0) {
+            new Role({
+                name: "user"
+            }).save(err => {
+                if (err) {
+                    console.log("error", err);
+                }
+
+                console.log("added 'user' to roles collection");
+            });
+
+            new Role({
+                name: "admin"
+            }).save(err => {
+                if (err) {
+                    console.log("error", err);
+                }
+
+                console.log("added 'admin' to roles collection");
+            });
+        }
+    });
+}
 
 //Login
 router.get('/', function (req, res) {
@@ -48,7 +90,12 @@ router.get('/add', function (req, res) {
     res.sendFile(path.join(__dirname, '/templates/admin/addapplicant.html'));
 });
 
-//Get Applicants
+//Edit Applicant
+router.get('/edit/applicant/:id', function (req, res) {
+    res.sendFile(path.join(__dirname, '/templates/admin/editapplicant.html'));
+});
+
+//Get All Applicants
 router.get('/api/applicant', function (req, res) {
     //Query database
     Applicant.find((err, applicant) => {
@@ -59,6 +106,16 @@ router.get('/api/applicant', function (req, res) {
         }
     });
 });
+
+//Get One Applicant by their id for edit
+router.get('/api/applicant/:id', function (req, res) {
+    const id = req.params.id;
+
+    Applicant.findById(id, (err, applicant) => {
+        res.json(applicant);
+    });
+});
+
 
 //Add Applicant
 router.post('/api/add', function (req, res) {
@@ -73,6 +130,24 @@ router.post('/api/add', function (req, res) {
     });
 });
 
+//Edit Applicant
+router.put('/api/edit/:id', function (req, res) {
+
+    Applicant.findByIdAndUpdate(req.params.id, req.body, {new: true}, function (err, docs) {
+        if (err){
+            console.log(err)
+        }
+        else{
+            console.log("Updated User : ", docs);
+            res.setHeader('Content-Type', 'text/html');
+            res.status(200).redirect("/applicants");
+        }
+    })
+});
+
+require('./routes/auth.routes')(app);
+require('./routes/user.routes')(app);
+
 app.use('/', router);
 app.use('/register', router);
 app.use('/home', router);
@@ -81,6 +156,7 @@ app.use('/applicants', router);
 app.use('/add', router);
 app.use('/api/applicant', router);
 app.use('/api/add', router);
+app.use('/edit/applicant/:id', router);
 
 let server = app.listen(3000, function() {
     console.log("App Server via Express is running on port 3000");

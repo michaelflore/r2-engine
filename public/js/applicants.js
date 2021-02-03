@@ -63,7 +63,11 @@ function loadTableData(personData) {
 						<td>
 							<div class="details-container">
 							<div class="block">+</div>
-								<div class="block">0</div>
+								<div class="block">
+								<a href="/edit/applicant/${person._id}">
+								<button>Edit</button>
+								</a>
+								</div>
 								<div class="block">${person.pipeline}</div>
 							</div>
 						</td>
