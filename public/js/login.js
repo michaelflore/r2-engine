@@ -24,13 +24,14 @@ form.addEventListener("submit", function(event) {
     let xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function() {
-        if (this.readyState === 4) {
+        if (this.readyState === 4 && this.status === 200) {
             console.log("The response" + xhttp.responseText);
             let user = JSON.parse(xhttp.responseText);
 
             if (user.accessToken) {
                 localStorage.setItem("user", JSON.stringify(user));
-                window.location.href = "/home";
+                document.cookie = `access=${user.accessToken};`;
+                window.location.replace("/home");
             }
         }
     };

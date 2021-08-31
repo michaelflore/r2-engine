@@ -6,7 +6,9 @@ const bodyParser = require('body-parser');
 const cors = require("cors");
 const models = require("./models");
 const db = require("./config/db.config");
-
+const { authJwt } = require("./middlewares");
+// const { withJWTAuthMiddleware } = require("express-kun");
+// const protectedRouter = withJWTAuthMiddleware(router, "r2engine-secret-key");
 const Applicant = models.applicant;
 const Role = models.role;
 
@@ -62,37 +64,41 @@ function initial() {
 
 //Login
 router.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, '/templates/auth/login.html'));
+    res.sendFile(path.join(__dirname, '/templates/login.html'));
 });
 
 //Register
 router.get('/register', function (req, res) {
-    res.sendFile(path.join(__dirname, '/templates/auth/register.html'));
+    res.sendFile(path.join(__dirname, '/templates/register.html'));
 });
 
 //Home Dashboard
 router.get('/home', function (req, res) {
-    res.sendFile(path.join(__dirname, '/templates/admin/index.html'));
+    if(req.headers.cookie.includes("access=")) {
+        res.sendFile(path.join(__dirname, '/templates/index.html'));
+    } else {
+        res.redirect("/");
+    }
 });
 
 //Job Postings
 router.get('/job-postings', function (req, res) {
-    res.sendFile(path.join(__dirname, '/templates/admin/job-postings.html'));
+    res.sendFile(path.join(__dirname, '/templates/job-postings.html'));
 });
 
 //Applicants
 router.get('/applicants', function (req, res) {
-    res.sendFile(path.join(__dirname, '/templates/admin/applicants.html'));
+    res.sendFile(path.join(__dirname, '/templates/applicants.html'));
 });
 
 //Add Applicant
 router.get('/add', function (req, res) {
-    res.sendFile(path.join(__dirname, '/templates/admin/addapplicant.html'));
+    res.sendFile(path.join(__dirname, '/templates/addapplicant.html'));
 });
 
 //Edit Applicant
 router.get('/edit/applicant/:id', function (req, res) {
-    res.sendFile(path.join(__dirname, '/templates/admin/editapplicant.html'));
+    res.sendFile(path.join(__dirname, '/templates/editapplicant.html'));
 });
 
 //Get All Applicants

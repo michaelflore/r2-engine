@@ -105,6 +105,5 @@ exports.signin = (req, res) => {
                 roles: authorities,
                 accessToken: token
             });
-
         });
 };

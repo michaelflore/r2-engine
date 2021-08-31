@@ -19,6 +19,7 @@ window.addEventListener("click", function(event) {
 logout.addEventListener("click", function (e) {
 	e.preventDefault();
 	localStorage.removeItem('user');
+	document.cookie = `access=;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
 	window.location.href = "/";
 })
 
@@ -28,4 +29,19 @@ function getCurrentUser() {
 
 let currentUser = getCurrentUser();
 
+// if(!currentUser) {
+// 	window.location.href = "/";
+// }
 admin.innerHTML = `${currentUser.username} <i class="fas fa-chevron-down"></i>`
+
+// let xhr = new XMLHttpRequest();
+//
+// xhr.onreadystatechange = function() {
+// 	if (this.readyState === 4 && this.status === 200) {
+// 		console.log("succ");
+// 	}
+// };
+//
+// xhr.open("GET", "/home", true);
+// xhr.setRequestHeader("x-access-token", localStorage.getItem("user").accessToken);
+// xhr.send();
